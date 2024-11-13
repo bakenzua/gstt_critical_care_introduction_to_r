@@ -578,10 +578,12 @@ max(weights_kg)
 sqrt(weights_kg)
 # nonsensical but we can do this
 
-# mean weight
+# mean weight in weights
 mean(weights_kg)
 mean(lots_of_weights)
-# standard deviation of weight
+
+
+# standard deviation of weights
 sd(weights_kg)
 sd(lots_of_weights)
 
@@ -624,6 +626,9 @@ lots_of_weights
 # look carefully at how R reports lots_of_weights in the console
 
 
+
+
+
 # logical indexing
 
 # first and third elements
@@ -656,132 +661,6 @@ weights_kg[weights_kg > 80]
 
 
 
-#########################################################
-#               Data types
-#########################################################
-
-
-###################################
-# numeric vector
-###################################
-weights_kg
-
-# vector of floats
-precise_weights_kg <- c(70.12, 82.65, 115.9)
-
-# floats as scientific notation
-160000000
-# [1] 1.6e+08
-
-
-###################################
-# logical
-###################################
-
-c(TRUE, TRUE, FALSE, FALSE)
-weights_kg > 90
-
-
-###################################
-# strings
-###################################
-
-some_letters <- c("a", "b", "c")
-# built in constants
-letters
-LETTERS
-
-# index vectors
-some_letters[1]
-letters[c(1,2,3)]
-LETTERS[c(1,2,3)]
-
-patient_name <- "Barney"
-
-# to upper case
-toupper(patient_name)
-?toupper
-
-
-
-patient_names <- c("Barney", "Luigi", "Boris", "Anne")
-
-#indexing
-patient_names[2]
-patient_names[patient_names == "Barney"]
-
-
-toupper(patient_names)
-# !!
-patient_names[startsWith(patient_names, "B")]
-?startsWith
-
-stringr::str_starts(patient_names, "B")
-?stringr::str_starts
-
-
-###################################
-# Dates
-###################################
-
-# create a date object
-christmas24 <- lubridate::dmy("25/12/2024")
-christmas24 <- lubridate::dmy("25-12-2024")
-christmas24
-
-new_year_eve_24 <- lubridate::dmy("31/12/2024")
-new_year_eve_24
-
-# operations
-new_year_eve_24 == christmas24
-
-new_year_eve_24 - christmas24
-
-
-###################################
-#      Factors
-###################################
-
-ards_categories <- factor(c("Mild", "Moderate", "Severe", "Mild", "Moderate", "Severe", "Severe", "Severe", "Severe", "Mild", "Moderate", "Severe", "Mild"))
-
-ards_categories
-
-length(ards_categories)
-
-levels(ards_categories)
-
-# count number in each category
-table(ards_categories)
-
-?table
-
-
-
-###################################
-#      Convert data types
-###################################
-
-as.numeric("3")
-
-as.character(3)
-
-as.numeric(christmas24 - new_year_eve_24)
-
-
-#########################################################
-#.      Packages
-#########################################################
-
-install.packages("lubridate")
-
-library(lubridate)
-
-dmy("25/12/2024")
-dmy("25/12/2024")
-
-
-#########################################################
-#########################################################
 #########################################################
 #########################################################
 #########################################################
