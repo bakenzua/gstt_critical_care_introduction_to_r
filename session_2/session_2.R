@@ -101,6 +101,7 @@ weights_kg <- c(75, 82, 115)
 
 # the class or type of object
 class(75)
+class(weights_kg)
 
 # vector of floats
 precise_weights_kg <- c(70.12, 82.65, 115.9)
@@ -308,11 +309,21 @@ day(festive_dates)
 
 # Durations
 new_year_eve_24 - christmas24
-duration_xmas_to_nye <- new_year_eve_24 - christmas24
+difftime_xmas_to_nye <- new_year_eve_24 - christmas24
 
-class(duration_xmas_to_nye)
+class(difftime_xmas_to_nye)
 
-# Periods
+# confusingly lubridate has it's own version of difftime called duration
+
+duration_xmas_to_nye <- as.duration(difftime_xmas_to_nye)
+
+
+# can use durations against other dates
+
+christmas24 - as.duration(duration_xmas_to_nye)
+
+# Periods - more human readable durations
+# can manipulate exiting date objects with periods
 ymd("2024/12/31") + days(6)
 
 ymd("2024/12/31") + months(1)
